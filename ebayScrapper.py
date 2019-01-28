@@ -70,6 +70,10 @@ def main():
         except ValueError:
             print("Something went wrong with price input")
             return
+        if priceExact <=0:
+            print("Price minor or equal to zero")
+            return
+
         url = "https://www.ebay.com/sch/i.html?_from=R40&_nkw=" + input_list[0]
         for x in range(1, len(input_list)):
             url = url+"+"+input_list[x]
@@ -85,6 +89,9 @@ def main():
             priceHigh=float(input('Enter high price: '))
         except ValueError:
             print("Something went wrong with price input")
+            return
+        if priceHigh <=0:
+            print("Price is minor or equal to zero")
             return
         url = "https://www.ebay.com/sch/i.html?_from=R40&_nkw=" + input_list[0]
         for x in range(1, len(input_list)):
@@ -102,6 +109,9 @@ def main():
         except ValueError:
             print("Something went wrong with price input")
             return
+        if priceLow <=0:
+            print("Price minor or equal to zero")
+            return
         url = "https://www.ebay.com/sch/i.html?_from=R40&_nkw=" + input_list[0]
         for x in range(1, len(input_list)):
             url = url+"+"+input_list[x]
@@ -115,13 +125,13 @@ def main():
     elif priceopt == 4:
         try:
             priceHigh=float(input('Enter max price: '))
-        except ValueError:
-            print("Something went wrong with price input")
-            return
-        try:
             priceLow=float(input('Enter low price: '))
         except ValueError:
             print("Something went wrong with price input")
+            return
+        
+        if priceHigh <= 0 or priceLow <= 0:
+            print("Price cannot be minor or equal to zero")
             return
         url = "https://www.ebay.com/sch/i.html?_from=R40&_nkw=" + input_list[0]
         for x in range(1, len(input_list)):
